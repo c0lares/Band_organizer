@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sound Waves - Banda</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos adicionais podem ser adicionados aqui */
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card card-black">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="The Sound Waves">
+          <div class="card-body">
+            <h5 class="card-title">The Sound Waves</h5>
+            <p class="card-text">The Sound Waves � uma banda fict�cia de rock alternativo formada em 2010. Sua m�sica � uma mistura de influ�ncias de indie, grunge e post-punk.</p>
+            <p class="card-text"><strong>List of Musics</strong></p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="" />
+              <label class="form-check-label" for=""> Default checkbox </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input"
+                type="checkbox"
+                value=""
+                id=""
+                checked />
+                <label th:each="tempMusic : ${musics}" class="form-check-label" th:text="${tempMusic.musicName + ' - ' + tempMusic.musicBand}"></label>
+            </div>
+            
+            <a href="#" class="btn btn-primary mt-3">Visite nosso site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript e depend�ncias opcionais -->
+</body>
+</html>
