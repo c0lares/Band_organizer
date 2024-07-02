@@ -1,7 +1,8 @@
 package com.c0lares.apiband.service;
 
-import com.c0lares.apiband.dao.BandRepository;
-import com.c0lares.apiband.entity.Band;
+import com.c0lares.apiband.dao.MusicRepository;
+import com.c0lares.apiband.entity.Music;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,23 +10,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BandServiceImpl implements BandService{
+public class MusicServiceImpl implements MusicService{
 
-    private BandRepository bandRepository;
+    private MusicRepository musicRepository;
 
     @Autowired
-    public BandServiceImpl(BandRepository bandRepository) {
-        this.bandRepository = bandRepository;
+    public MusicServiceImpl(MusicRepository musicRepository) {
+        this.musicRepository = musicRepository;
     }
 
     @Override
-    public List<Band> findAll() {
-        return bandRepository.findAll();
+    public List<Music> findAll() {
+        return musicRepository.findAll();
     }
 
     @Override
-    public Band findById(Long id) {
-        Optional<Band> result = bandRepository.findById(id);
+    public Music findById(Long id) {
+        Optional<Music> result = musicRepository.findById(id);
 
 
         if (result.isEmpty()){
@@ -36,9 +37,9 @@ public class BandServiceImpl implements BandService{
     }
 
     @Override
-    public Boolean save(Band band) {
+    public Boolean save(Music music) {
         try{
-            bandRepository.save(band);
+            musicRepository.save(music);
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -49,7 +50,7 @@ public class BandServiceImpl implements BandService{
     @Override
     public Boolean deleteById(Long id) {
         try{
-            bandRepository.deleteById(id);
+            musicRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;
